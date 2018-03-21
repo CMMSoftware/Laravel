@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Clientes;
 
 class ClientesController extends Controller
 {
@@ -22,10 +23,10 @@ class ClientesController extends Controller
     public function store(Request $request) {
         request()->validate([
             'nome' => 'required',
-            'CPF' => 'required',
+            'cpf' => 'required',
         ]);
         Clientes::create($request->all());
-        return redirect()->route('fuse.cadastros.clientes.index')->with('success','Cliente Criado com Sucesso!');
+        return redirect()->route('clientes.index')->with('success','Cliente Criado com Sucesso!');
     }
 
     public function edit(Clientes $cliente) {
@@ -35,15 +36,15 @@ class ClientesController extends Controller
     public function update(Request $request, Clientes $cliente) {
         request()->validate([
             'nome' => 'required',
-            'CPF' => 'required',
+            'cpf' => 'required',
         ]);
         $cliente->update($request->all());
-        return redirect()->route('fuse.cadastros.clientes.index')->with('success','Cliente Atualizado com Sucesso!');
+        return redirect()->route('clientes.index')->with('success','Cliente Atualizado com Sucesso!');
     }
 
     public function destroy($id) {
         Clientes::destroy($id);
-        return redirect()->route('fuse.cadastros.clientes.index')->with('success','Cliente Deletado com Sucesso!');
+        return redirect()->route('clientes.index')->with('success','Cliente Deletado com Sucesso!');
     }
 
 }
