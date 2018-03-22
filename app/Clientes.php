@@ -15,7 +15,6 @@ class Clientes extends Model
     	'dataNascimento',
     	'telefone1',
         'telefone2',
-    	'email',
-    	'situacao'
+    	'email'
     ];
 }

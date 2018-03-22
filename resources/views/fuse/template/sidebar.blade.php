@@ -53,7 +53,7 @@
                     <a href="">Usuários</a>
                 </li>
                 <li>
-                    <a href="{{ route('clientes.create') }}">Clientes</a>
+                    <a href="{{ route('clientes.index') }}">Clientes</a>
                 </li>
                 <li>
                     <a href="">Fornecedores</a>

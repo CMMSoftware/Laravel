@@ -13,7 +13,8 @@ class ClientesController extends Controller
     }
 
     public function index() {
-        return view('fuse.cadastros.clientes.index');
+        $clientes = Clientes::latest()->paginate(5);
+        return view('fuse.cadastros.clientes.index', compact('clientes'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create() {
@@ -21,12 +22,13 @@ class ClientesController extends Controller
     }
 
     public function store(Request $request) {
-        request()->validate([
-            'nome' => 'required',
-            'cpf' => 'required',
-        ]);
         Clientes::create($request->all());
         return redirect()->route('clientes.index')->with('success','Cliente Criado com Sucesso!');
+    }
+
+    public function show($id) {
+        $cliente = Clientes::find($id);
+        return view('clientes.show', compact('cliente'));
     }
 
     public function edit(Clientes $cliente) {
@@ -34,17 +36,13 @@ class ClientesController extends Controller
     }
 
     public function update(Request $request, Clientes $cliente) {
-        request()->validate([
-            'nome' => 'required',
-            'cpf' => 'required',
-        ]);
         $cliente->update($request->all());
         return redirect()->route('clientes.index')->with('success','Cliente Atualizado com Sucesso!');
     }
 
-    public function destroy($id) {
-        Clientes::destroy($id);
+    public function destroy(Clientes $cliente) {
+        Clientes::destroy($cliente->id);
         return redirect()->route('clientes.index')->with('success','Cliente Deletado com Sucesso!');
     }
-
+ 
 }
