@@ -55,7 +55,7 @@
 
 <body class="theme-blue">
     <!-- Page Loader -->
-    <!--<div class="page-loader-wrapper">
+    <div class="page-loader-wrapper">
         <div class="loader">
             <div class="preloader">
                 <div class="spinner-layer pl-red">
@@ -69,7 +69,7 @@
             </div>
             <p>Carregando...</p>
         </div>
-    </div>-->
+    </div>
 
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>

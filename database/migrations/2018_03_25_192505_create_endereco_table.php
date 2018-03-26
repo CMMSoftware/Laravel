@@ -21,7 +21,7 @@ class CreateEnderecoTable extends Migration
             $table->string('numero');
             $table->string('cidade');
             $table->string('estado');
-            $table->string('cep');
+            $table->string('cep')->nullable();
             $table->foreign('clienteId')->references('id')->on('clientes');
             $table->timestamps();
         });

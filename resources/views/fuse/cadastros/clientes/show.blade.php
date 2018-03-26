@@ -6,7 +6,7 @@
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Clientes</a></li>
-        <li class="active"><i class="material-icons">person_add</i> Detalhar</li>
+        <li class="active"><i class="material-icons">details</i> Detalhar</li>
     </ol>
 </div>
 
@@ -39,7 +39,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                        		""
+                        		{{ $cliente->genero }}
                         	</div>
                         </div>
                     </div>
@@ -127,7 +127,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->endereco }}
                             </div>
                         </div>
                     </div>
@@ -138,7 +138,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->bairro }}
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->numero }}
                             </div>
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->cidade }}
                             </div>
                         </div>
                     </div>
@@ -171,7 +171,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->estado }}
                             </div>
                         </div>
                     </div>
@@ -182,7 +182,7 @@
                         </p>
                         <div class="input-group">
                             <div class="form-line">
-                                
+                                {{ $cliente->endereco->cep }}
                             </div>
                         </div>
                     </div>

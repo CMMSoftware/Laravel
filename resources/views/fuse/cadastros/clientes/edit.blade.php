@@ -6,7 +6,7 @@
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Clientes</a></li>
-        <li class="active"><i class="material-icons">person_add</i> Editar</li>
+        <li class="active"><i class="material-icons">edit</i> Editar</li>
     </ol>
 </div>
 
@@ -54,9 +54,9 @@
                                 <b>Gênero</b>
                             </p>
                             <div class="form-line">
-                                <input name="genero" value="0" type="radio" id="genero_1" class="with-gap radio-col-red" />
+                                <input name="genero" value="Masculino" type="radio" id="genero_1" class="with-gap radio-col-red" />
                                 <label for="genero_1">Masculino</label>
-                                <input name="genero" value="1" type="radio" id="genero_2" class="with-gap radio-col-pink" />
+                                <input name="genero" value="Feminino" type="radio" id="genero_2" class="with-gap radio-col-pink" />
                                 <label for="genero_2">Feminino</label>
                             </div>
                         </div>
