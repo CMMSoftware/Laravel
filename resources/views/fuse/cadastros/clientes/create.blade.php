@@ -16,7 +16,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    CADASTRAR CLIENTES
+                    CADASTRAR CLIENTE
                 </h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -43,8 +43,20 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="nome" class="form-control" placeholder="Cliente">
+                                    <input type="text" maxlength="40" name="nome" class="form-control">
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <p>
+                                <b>Gênero</b>
+                            </p>
+                            <div class="form-line">
+                                <input name="genero" value="0" type="radio" id="genero_1" class="with-gap radio-col-red" />
+                                <label for="genero_1">Masculino</label>
+                                <input name="genero" value="1" type="radio" id="genero_2" class="with-gap radio-col-pink" />
+                                <label for="genero_2">Feminino</label>
                             </div>
                         </div>
 
@@ -54,18 +66,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="dataNascimento" class="form-control date" placeholder="Exemplo: 30/07/2016">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <p>
-                                <b>Gênero</b>
-                            </p>
-                            <div class="input-group">
-                                <div class="form-line">
-                                    <input type="text" name="genero" class="form-control date" placeholder="Exemplo: 30/07/2016">
+                                    <input type="text" name="dataNascimento" class="form-control date">
                                 </div>
                             </div>
                         </div>
@@ -76,7 +77,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cpf" class="form-control" placeholder="Exemplo: 000.000.000-00">
+                                    <input type="text" name="cpf" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -87,7 +88,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="rg" class="form-control" placeholder="Exemplo: 00000000-00">
+                                    <input type="text" name="rg" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -98,7 +99,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="email" class="form-control email" placeholder="Exemplo: fulano@exemplo.com">
+                                    <input type="text" name="email" class="form-control email">
                                 </div>
                             </div>
                         </div>
@@ -109,7 +110,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone1" class="form-control mobile-phone-number" placeholder="Exemplo: (00) 9 0000-0000">
+                                    <input type="text" name="telefone1" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -120,7 +121,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone1" class="form-control mobile-phone-number" placeholder="Exemplo: (00) 9 0000-0000">
+                                    <input type="text" name="telefone2" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -131,7 +132,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone2" class="form-control mobile-phone-number" placeholder="Exemplo: (00) 0000-0000">
+                                    <input type="text" name="telefone3" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -142,7 +143,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="endereco" class="form-control" placeholder="Exemplo: Avenida Joaquim Moreira">
+                                    <input type="text" name="endereco" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -153,7 +154,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="bairro" class="form-control" placeholder="Exemplo: Itapuã">
+                                    <input type="text" name="bairro" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -164,7 +165,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="numero" class="form-control" placeholder="Exemplo: 00">
+                                    <input type="text" name="numero" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -175,7 +176,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cidade" class="form-control" placeholder="Exemplo: Maceió">
+                                    <input type="text" name="cidade" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -186,7 +187,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="estado" class="form-control" placeholder="Exemplo: Alagoas">
+                                    <input type="text" name="estado" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -197,13 +198,16 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cep" class="form-control" placeholder="Exemplo: 00000-000">
+                                    <input type="text" name="cep" class="form-control">
                                 </div>
                             </div>
                         </div>
+
+                        
                     </div>
                     
-                    <button type="submit" class="btn btn-primary m-t-15 waves-effect">SALVAR</button>
+                    <a href="{{ route('clientes.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
+                    <button type="submit" class="btn btn-success waves-effect">SALVAR</button>
                 </form>
 
             </div>

@@ -21,7 +21,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    Clientes
+                    CLIENTES
                 </h2>
             </div>
 
@@ -29,7 +29,7 @@
 
             <div class="col-md-12">
 	            <div class="pull-left">
-	                <a class="btn btn-success" href="{{ route('clientes.create') }}">CADASTRAR</a>
+	                <a class="btn btn-success waves-effect" href="{{ route('clientes.create') }}">CADASTRAR</a>
 	            </div>
         	</div>
 
@@ -53,9 +53,14 @@
 	                            <td>{{ $cliente->cpf }}</td>
 	                            <td>{{ $cliente->telefone1 }}</td>
 	                            <td class="text-center">
-	                            	<a class="btn btn-info" href="{{ route('clientes.edit', $clientes) }}">DETALHAR</a>
-	                            	<a class="btn btn-primary" href="{{ route('clientes.edit', $clientes) }}">EDITAR</a>
-	                            	<a class="btn btn-danger" href="{{ route('clientes.destroy', $clientes) }}">DELETAR</a>
+	                            	<a class="btn btn-info waves-effect" href="{{ route('clientes.show', $cliente) }}">DETALHAR</a>
+	                            	<a class="btn btn-primary waves-effect" href="{{ route('clientes.edit', $cliente) }}">EDITAR</a>
+                                    <form style="display: inline;" action="{{ route('clientes.destroy', $cliente->id) }}" 
+                                        method="POST">
+                                        {{ method_field('DELETE') }}
+                                        {{ csrf_field() }}
+                                        <input type="submit" class="btn btn-danger waves-effect" value="DELETAR" name="deletar">
+                                    </form>
 	                        	</td>
 	                        </tr>
 	                    </tbody>

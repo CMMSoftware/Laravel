@@ -1,7 +1,7 @@
 <!-- User Info -->
 <div class="user-info">
     <div class="image">
-        <img src="http://images.eonline.com/eol_images/Entire_Site/201553//rs_586x875-150603063141-johnny_depp_z4mtzin9x2vc_rt.gif" width="48" height="48" alt="User" />
+        x
     </div>
     <div class="info-container">
         <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
@@ -18,8 +18,7 @@
 
                 <li>
                     <a href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

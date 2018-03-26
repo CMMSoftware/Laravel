@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Clientes;
+use App\Endereco;
 
 class ClientesController extends Controller
 {
@@ -14,7 +15,8 @@ class ClientesController extends Controller
 
     public function index() {
         $clientes = Clientes::latest()->paginate(5);
-        return view('fuse.cadastros.clientes.index', compact('clientes'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('fuse.cadastros.clientes.index', compact('clientes'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     public function create() {
@@ -22,26 +24,45 @@ class ClientesController extends Controller
     }
 
     public function store(Request $request) {
-        Clientes::create($request->all());
-        return redirect()->route('clientes.index')->with('success','Cliente Criado com Sucesso!');
+        $cliente = Clientes::create($request->all());
+        $endereco = new Endereco();
+        $endereco->endereco = $request->endereco;
+        $endereco->bairro = $request->bairro;
+        $endereco->numero = $request->numero;
+        $endereco->cidade = $request->cidade;
+        $endereco->estado = $request->estado;
+        $endereco->cep = $request->cep;
+        $endereco->clienteId = $cliente->id;
+        $cliente->endereco()->save($endereco);
+        return redirect()->route('clientes.index')->with('success','Cliente Cadastrado com Sucesso!');
     }
 
-    public function show($id) {
-        $cliente = Clientes::find($id);
-        return view('clientes.show', compact('cliente'));
+    public function show(Clientes $cliente) {
+        return view('fuse.cadastros.clientes.show', compact('cliente'));
     }
 
     public function edit(Clientes $cliente) {
         return view('fuse.cadastros.clientes.edit', compact('cliente'));
     }
 
-    public function update(Request $request, Clientes $cliente) {
+    public function update(Request $request, $id) {
+        $cliente = Clientes::find($id);
         $cliente->update($request->all());
+        $endereco = $cliente->endereco;
+        $endereco->endereco = $request->endereco;
+        $endereco->bairro = $request->bairro;
+        $endereco->numero = $request->numero;
+        $endereco->cidade = $request->cidade;
+        $endereco->estado = $request->estado;
+        $endereco->cep = $request->cep;
+        $cliente->endereco()->save($endereco);
         return redirect()->route('clientes.index')->with('success','Cliente Atualizado com Sucesso!');
     }
 
-    public function destroy(Clientes $cliente) {
-        Clientes::destroy($cliente->id);
+    public function destroy($id) {
+        $cliente = Clientes::find($id);
+        $cliente->endereco()->delete();
+        $cliente->delete();
         return redirect()->route('clientes.index')->with('success','Cliente Deletado com Sucesso!');
     }
  

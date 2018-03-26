@@ -8,13 +8,23 @@ class Clientes extends Model
 {
 	protected $table = 'Clientes';
 
+    protected $primaryKey = "id";
+
+    public $incrementing = true;
+
     protected $fillable = [
     	'nome',
+        'genero',
+        'dataNascimento',
         'cpf',
         'rg',
-    	'dataNascimento',
+        'email',
     	'telefone1',
         'telefone2',
-    	'email'
+        'telefone3'
     ];
+
+    public function endereco() {
+        return $this->hasOne(Endereco::class, 'clienteId','id');
+    }
 }
