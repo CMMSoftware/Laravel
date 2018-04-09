@@ -27,9 +27,9 @@ class ClientesRequest extends FormRequest
             'nome' => 'required',
             'cpf' => 'required|cpf',
             'telefone1' => 'required|celular_com_ddd',
-            'telefone2' => 'celular_com_ddd',
-            'telefone3' => 'celular_com_ddd',
-            'dataNascimento' => 'data'
+            'telefone2' => 'nullable|celular_com_ddd',
+            'telefone3' => 'nullable|celular_com_ddd',
+            'dataNascimento' => 'nullable|data'
         ];
     }
 
