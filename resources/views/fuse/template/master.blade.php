@@ -131,19 +131,11 @@
     <!-- ChartJs -->
     <script src="{{ asset('fuse/plugins/chartjs/Chart.bundle.js') }}"></script>
 
-    <!-- Flot Charts Plugin Js -->
-    <script src="{{ asset('fuse/plugins/flot-charts/jquery.flot.js') }}"></script>
-    <script src="{{ asset('fuse/plugins/flot-charts/jquery.flot.resize.js') }}"></script>
-    <script src="{{ asset('fuse/plugins/flot-charts/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('fuse/plugins/flot-charts/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('fuse/plugins/flot-charts/jquery.flot.time.js') }}"></script>
-
     <!-- Sparkline Chart Plugin Js -->
     <script src="{{ asset('fuse/plugins/jquery-sparkline/jquery.sparkline.js') }}"></script>
 
     <!-- Custom Js -->
     <script src="{{ asset('fuse/js/admin.js') }}"></script>
-    <script src="{{ asset('fuse/js/pages/index.js') }}"></script>
 
     <!-- Demo Js -->
     <script src="{{ asset('fuse/js/demo.js') }}"></script>
@@ -168,6 +160,19 @@
 
     <!-- noUISlider Plugin Js -->
     <script src="{{ asset('fuse/plugins/nouislider/nouislider.js') }}"></script>
+
+    <!-- Validator Bootstrap Js -->
+    <script src="{{ asset('fuse/js/validator.js') }}"></script>
+
+    <!-- Biblioteca para Mascaras Jquery Js -->
+    <script src="{{ asset('fuse/js/mascaras.js') }}"></script>
+
+    <!-- Mascaras Jquery Js -->
+    <script src="{{ asset('fuse/js/jquery.maskedinput.js') }}"></script>
+
+    <!-- Moment Js -->
+    <script src="{{ asset('fuse/plugins/momentjs/moment.js') }}"></script>
+
 </body>
 
 </html>

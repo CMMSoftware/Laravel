@@ -30,6 +30,16 @@
                 </ul>
             </div>
             <div class="body">
+
+                @if($errors->any())
+                    <ul class="list-group">
+                        @foreach($errors->all() as $erro)
+                            <li class="list-group-item list-group-item-warning">
+                                {{ $erro }}
+                            </li>
+                        @endforeach 
+                    </ul>
+                @endif
                 
                 <form action="{{action('ClientesController@store')}}" method="POST">
 
@@ -44,6 +54,7 @@
                             <div class="input-group">
                                 <div class="form-line">
                                     <input type="text" maxlength="40" name="nome" class="form-control">
+                                    <div class="help-block with-errors"></div>
                                 </div>
                             </div>
                         </div>
@@ -53,9 +64,9 @@
                                 <b>Gênero</b>
                             </p>
                             <div class="form-line">
-                                <input name="genero" value="Masculino" type="radio" id="genero_1" class="with-gap radio-col-red" />
+                                <input name="genero" value="1" type="radio" id="genero_1" class="with-gap radio-col-red" />
                                 <label for="genero_1">Masculino</label>
-                                <input name="genero" value="Feminino" type="radio" id="genero_2" class="with-gap radio-col-pink" />
+                                <input name="genero" value="2" type="radio" id="genero_2" class="with-gap radio-col-pink" />
                                 <label for="genero_2">Feminino</label>
                             </div>
                         </div>
@@ -66,8 +77,9 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="dataNascimento" class="form-control date">
+                                    <input type="text" name="dataNascimento" id="data" class="form-control date">
                                 </div>
+
                             </div>
                         </div>
 
@@ -77,7 +89,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cpf" class="form-control">
+                                    <input type="text" name="cpf" id="cpf" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -88,7 +100,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="rg" class="form-control">
+                                    <input type="text" name="rg" id="rg" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -99,7 +111,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="email" class="form-control email">
+                                    <input type="text" maxlength="40" name="email" class="form-control email">
                                 </div>
                             </div>
                         </div>
@@ -110,7 +122,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone1" class="form-control mobile-phone-number">
+                                    <input type="text" name="telefone1" id="celular1" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -121,7 +133,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone2" class="form-control mobile-phone-number">
+                                    <input type="text" name="telefone2" id="celular2" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -132,7 +144,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone3" class="form-control mobile-phone-number">
+                                    <input type="text" name="telefone3" id="telefone" class="form-control mobile-phone-number">
                                 </div>
                             </div>
                         </div>
@@ -143,7 +155,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="endereco" class="form-control">
+                                    <input type="text" maxlength="40" name="endereco" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -154,7 +166,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="bairro" class="form-control">
+                                    <input type="text" maxlength="40" name="bairro" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -165,7 +177,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="numero" class="form-control">
+                                    <input type="text" name="numero" id="numero" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -176,7 +188,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cidade" class="form-control">
+                                    <input type="text" maxlength="40" name="cidade" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -187,7 +199,7 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="estado" class="form-control">
+                                    <input type="text" maxlength="40" name="estado" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -198,16 +210,16 @@
                             </p>
                             <div class="input-group">
                                 <div class="form-line">
-                                    <input type="text" name="cep" class="form-control">
+                                    <input type="text" name="cep" id="cep" class="form-control">
                                 </div>
                             </div>
                         </div>
-
                         
                     </div>
                     
                     <a href="{{ route('clientes.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
                     <button type="submit" class="btn btn-success waves-effect">SALVAR</button>
+                    
                 </form>
 
             </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Clientes;
 use App\Endereco;
+use App\Http\Requests\ClientesRequest;
 
 class ClientesController extends Controller
 {
@@ -23,7 +24,7 @@ class ClientesController extends Controller
         return view('fuse.cadastros.clientes.create');
     }
 
-    public function store(Request $request) {
+    public function store(Clientes $cliente, ClientesRequest $request) {
         $cliente = Clientes::create($request->all());
         $endereco = new Endereco();
         $endereco->endereco = $request->endereco;
@@ -45,7 +46,7 @@ class ClientesController extends Controller
         return view('fuse.cadastros.clientes.edit', compact('cliente'));
     }
 
-    public function update(Request $request, $id) {
+    public function update(ClientesRequest $request, $id) {
         $cliente = Clientes::find($id);
         $cliente->update($request->all());
         $endereco = $cliente->endereco;
