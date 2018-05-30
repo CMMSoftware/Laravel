@@ -16,11 +16,11 @@ class CreateEnderecoTable extends Migration
         Schema::create('endereco', function (Blueprint $table) {
             $table->integer('clienteId')->unsigned();
             $table->primary('clienteId');
-            $table->string('endereco');
-            $table->string('bairro');
-            $table->string('numero');
-            $table->string('cidade');
-            $table->string('estado');
+            $table->string('endereco')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('numero')->nullable();
+            $table->string('cidade')->nullable();
+            $table->string('estado')->nullable();
             $table->string('cep')->nullable();
             $table->foreign('clienteId')->references('id')->on('clientes');
             $table->timestamps();

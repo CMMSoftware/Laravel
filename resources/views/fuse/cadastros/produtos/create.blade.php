@@ -5,7 +5,7 @@
     <ol class="breadcrumb breadcrumb-bg-blue">
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
-        <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Clientes</a></li>
+        <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Produtos</a></li>
         <li class="active"><i class="material-icons">add</i> Cadastrar</li>
     </ol>
 </div>
@@ -16,7 +16,7 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    CADASTRAR CLIENTE
+                    CADASTRAR PRODUTO
                 </h2>
                 <ul class="header-dropdown m-r--5">
                     <li class="dropdown">
@@ -31,45 +31,31 @@
             </div>
             <div class="body">
                 
-                <form id="form_validation" method="POST" action="{{action('ClientesController@store')}}">
+                <form id="form_validation" method="POST" action="{{action('ProdutosController@store')}}">
 
                     {{ csrf_field() }}
 
                     <div class="row clearfix">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             
-                                <b>*Nome</b>
+                            <b>Nome do Produto</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input id="nome" type="text" class="form-control" name="nome" 
-                                    value="{{ old('nome') }}" required autofocus>
+                                    <input id="nomeProduto" type="text" class="form-control" name="nomeProduto" 
+                                    value="{{ old('nomeProduto') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             
-                                <b>Gênero</b>
-                            
-                            <div class="form-line">
-                                <input name="genero" value="1" type="radio" id="genero_1" class="with-gap radio-col-red"
-                                 @if(old('genero') ==  1) checked="checked" @endif />
-                                <label for="genero_1">Masculino</label>
-                                <input name="genero" value="2" type="radio" id="genero_2" class="with-gap radio-col-pink"
-                                 @if(old('genero') ==  2) checked="checked" @endif />
-                                <label for="genero_2">Feminino</label>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            
-                                <b>*Data de Nascimento</b>
+                            <b>Nome Resumido PDV</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="dataNascimento" id="dataNascimento" 
-                                    class="form-control date" value="{{old('data')}}" required autofocus>
+                                    <input id="nomeResumido" type="text" class="form-control" name="nomeResumido" 
+                                    value="{{ old('nomeResumido') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
@@ -78,36 +64,33 @@
                     <div class="row clearfix">
                         <div class="col-md-4">
                             
-                                <b>*CPF</b>
+                            <b>Código de Barras</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="cpf" id="cpf" class="form-control cpf" 
-                                    value="{{old('cpf')}}" required autofocus>
+                                    <input id="codigoBarras" type="text" class="form-control" name="codigoBarras" 
+                                    value="{{ old('codigoBarras') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>RG</b>
+                            <b>Marca</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="rg" id="rg" class="form-control" 
-                                    value="{{old('rg')}}">
+                                    <input type="text" name="marca" id="marca" class="form-control" 
+                                    value="{{ old('marca') }}">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>E-Mail</b>
+                            <b>Fabricante</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="email" class="form-control email" 
-                                    value="{{old('email')}}">
+                                    <input type="text" maxlength="40" name="fabricante" id="fabricante" class="form-control" value="{{ old('fabricante') }}">
                                 </div>
                             </div>
                         </div>
@@ -116,23 +99,34 @@
                     <div class="row clearfix">
                         <div class="col-md-4">
                             
-                                <b>*Telefone Celular 1</b>
+                            <b>Fornecedor</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone1" id="celular1" class="form-control" 
-                                    value="{{old('telefone1')}}" required autofocus>
+                                    <input id="fornecedor" type="text" class="form-control" name="fornecedor" 
+                                    value="{{ old('fornecedor') }}">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>Telefone Fixo</b>
+                            <b>Localização</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="telefone2" id="celular2" class="form-control mobile-phone-number" value="{{old('telefone2')}}">
+                                    <input id="localizacao" type="text" class="form-control" name="localizacao" 
+                                    value="{{ old('localizacao') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            
+                            <b>Grupo</b>
+                            
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input id="grupo" type="text" class="form-control" name="grupo" 
+                                    value="{{ old('grupo') }}">
                                 </div>
                             </div>
                         </div>
@@ -141,36 +135,34 @@
                     <div class="row clearfix">
                         <div class="col-md-4">
                             
-                                <b>CEP</b>
+                            <b>Estoque Atual</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="cep" id="cep" class="form-control" 
-                                    value="{{old('cep')}}">
+                                    <input id="estoqueAtual" type="text" class="form-control" name="estoqueAtual" 
+                                    value="{{ old('estoqueAtual') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>Cidade</b>
+                            <b>Estoque Mínimo</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="cidade" class="form-control" 
-                                    value="{{old('cidade')}}">
+                                    <input id="estoqueMinimo" type="text" class="form-control" name="estoqueMinimo" 
+                                    value="{{ old('estoqueMinimo') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>Estado</b>
+                            <b>Estoque Máximo</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="estado" class="form-control" 
-                                    value="{{old('estado')}}">
+                                    <input id="estoqueMaximo" type="text" class="form-control" name="estoqueMaximo" 
+                                    value="{{ old('estoqueMaximo') }}" required autofocus>
                                 </div>
                             </div>
                         </div>
@@ -179,42 +171,40 @@
                     <div class="row clearfix">
                         <div class="col-md-4">
                             
-                                <b>Endereço</b>
+                            <b>Custo</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="endereco" class="form-control" 
-                                    value="{{old('endereco')}}">
+                                    <input id="custo" type="text" class="form-control" name="custo" 
+                                    value="{{ old('custo') }}">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>Número</b>
+                            <b>Comissão</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" name="numero" id="numero" class="form-control" 
-                                    value="{{old('numero')}}">
+                                    <input id="comissao" type="text" class="form-control" name="comissao" 
+                                    value="{{ old('comissao') }}">
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             
-                                <b>Bairro</b>
+                            <b>Preço Final</b>
                             
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="text" maxlength="40" name="bairro" class="form-control" 
-                                    value="{{old('bairro')}}">
+                                    <input id="precoFinal" type="text" class="form-control" name="precoFinal" 
+                                    value="{{ old('precoFinal') }}">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <a href="{{ route('clientes.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
+                    <a href="{{ route('produtos.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
                     <button type="submit" class="btn btn-success waves-effect">SALVAR</button>
                     
                 </form>

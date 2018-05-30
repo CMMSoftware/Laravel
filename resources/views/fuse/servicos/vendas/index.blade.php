@@ -4,8 +4,8 @@
 <div class="block-header">
     <ol class="breadcrumb breadcrumb-bg-blue">
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
-        <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
-        <li class="active"><i class="material-icons">account_circle</i> Clientes</li>
+        <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Serviços</a></li>
+        <li class="active"><i class="material-icons">account_circle</i> Vendas</li>
     </ol>
 </div>
 
@@ -38,13 +38,14 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    CLIENTES
+                    VENDAS
                 </h2>
             </div>
 
             <div class="body">
 
-                <a class="btn btn-success waves-effect" href="{{ route('clientes.create') }}">CADASTRAR</a>
+                <a class="btn btn-success waves-effect" href="{{ route('vendas.create') }}">REALIZAR VENDA</a>
+                <a class="btn btn-success waves-effect" href="{{ route('vendas.create') }}">REALIZAR ORÇAMENTO</a>
 
                 <div class="table-responsive">
                     <table id="example" class="table table-bordered table-striped table-hover dataTable js-exportable">
@@ -52,39 +53,39 @@
                             <tr>
                                 <th>#</th>
                                 <th>CLIENTE</th>
-                                <th>CPF</th>
-                                <th>CELULAR</th>
+                                <th>VALOR</th>
+                                <th>DATA</th>
                                 <th width="28%"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($clientes as $cliente)
+                            @foreach ($vendas as $venda)
                                 <tr>
-                                    <th scope="row">{{ $cliente->id }}</th>
-                                    <td>{{ $cliente->nome }}</td>
-                                    <td>{{ $cliente->cpf }}</td>
-                                    <td>{{ $cliente->telefone1 }}</td>
+                                    <th scope="row">{{ $venda->id }}</th>
+                                    <td>{{ $venda->nomeFantasia }}</td>
+                                    <td>{{ $venda->cnpj }}</td>
+                                    <td>{{ $venda->representante1 }}</td>
                                     <td class="text-center">
                                         <a class="btn btn-info waves-effect" 
-                                        href="{{ route('clientes.show', $cliente) }}">DETALHAR</a>
+                                        href="{{ route('vendas.show', $venda->id) }}">DETALHAR</a>
                                         <a class="btn btn-primary waves-effect" 
-                                        href="{{ route('clientes.edit', $cliente) }}">EDITAR</a>
+                                        href="{{ route('vendas.edit', $venda->id) }}">EDITAR</a>
                                         <a class="btn btn-danger waves-effect"
-                                        data-toggle="modal" data-target="#modalCliente{{$cliente->id}}">DELETAR</a>
+                                        data-toggle="modal" data-target="#modalVenda{{$venda->id}}">DELETAR</a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalCliente{{$cliente->id}}" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="modalVenda{{$venda->id}}" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content modal-col-red">
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="defaultModalLabel">EXCLUSÃO</h4>
                                             </div>
                                             <div class="modal-body">
-                                                Deseja Realmente Excluir o Cliente <b>{{$cliente->nome}}</b>?
+                                                Deseja Realmente Excluir a Venda <b>{{$venda->id}}</b>?
                                             </div>
                                             <div class="modal-footer">
                                                 <form style="display: inline;" 
-                                                action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
+                                                action="{{ route('vendas.destroy', $venda->id) }}" method="POST">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-link waves-effect">CONFIRMAR</button>

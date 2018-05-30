@@ -5,7 +5,7 @@
     <ol class="breadcrumb breadcrumb-bg-blue">
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
-        <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Clientes</a></li>
+        <li><a href="javascript:void(0);"><i class="material-icons">account_circle</i> Produtos</a></li>
         <li class="active"><i class="material-icons">details</i> Detalhar</li>
     </ol>
 </div>
@@ -15,41 +15,30 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    DETALHAR CLIENTE
+                    DETALHAR PRODUTO
                 </h2>
             </div>
             <div class="body">
                 
                 <div class="row clearfix">
-                    <div class="col-md-4">
-                        <p>
-                            <b>*Nome</b>
-                        </p>
+                    <div class="col-md-6">
+                        
+                        <b>Nome do Produto</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->nome}}
+                                {{$produto->nomeProduto}}
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-4">
-                        <p>
-                            <b>Gênero</b>
-                        </p>
+                    <div class="col-md-6">
+                        
+                        <b>Nome Resumido PDV</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->genero}}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <p>
-                            <b>*Data de Nascimento</b>
-                        </p>
-                        <div class="form-group">
-                            <div class="form-line">
-                                {{$cliente->dataNascimento}}
+                                {{$produto->nomeResumido}}
                             </div>
                         </div>
                     </div>
@@ -57,34 +46,32 @@
 
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        <p>
-                            <b>*CPF</b>
-                        </p>
+                        
+                        <b>Código de Barras</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->cpf}}
+                                {{$produto->codigoBarras}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>RG</b>
-                        </p>
+                        
+                        <b>Marca</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->rg}}
+                                {{$produto->marca}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>E-Mail</b>
-                        </p>
+                        
+                        <b>Fabricante</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->email}}
+                                {{$produto->fabricante}}
                             </div>
                         </div>
                     </div>
@@ -92,23 +79,32 @@
 
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        <p>
-                            <b>*Telefone Celular 1</b>
-                        </p>
+                        
+                        <b>Fornecedor</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->telefone1}}
+                                {{$produto->fornecedor}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>Telefone Fixo</b>
-                        </p>
+                        
+                        <b>Localização</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->telefone2}}
+                                {{$produto->localizacao}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                            
+                        <b>Grupo</b>
+                        
+                        <div class="form-group">
+                            <div class="form-line">
+                                {{$produto->grupo}}
                             </div>
                         </div>
                     </div>
@@ -116,34 +112,32 @@
 
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        <p>
-                            <b>CEP</b>
-                        </p>
+                        
+                        <b>Estoque Atual</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->cep}}
+                                {{$produto->estoqueAtual}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>Cidade</b>
-                        </p>
+                        
+                        <b>Estoque Mínimo</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->cidade}}
+                                {{$produto->estoqueMinimo}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>Estado</b>
-                        </p>
+                        
+                        <b>Estoque Máximo</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->estado}}
+                                {{$produto->estoqueMaximo}}
                             </div>
                         </div>
                     </div>
@@ -151,40 +145,38 @@
 
                 <div class="row clearfix">
                     <div class="col-md-4">
-                        <p>
-                            <b>Endereço</b>
-                        </p>
+                        
+                        <b>Custo</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->endereco}}
+                                {{$produto->custo}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>Número</b>
-                        </p>
+                        
+                        <b>Comissão</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->numero}}
+                                {{$produto->comissao}}
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
-                        <p>
-                            <b>Bairro</b>
-                        </p>
+                        
+                        <b>Preço Final</b>
+                        
                         <div class="form-group">
                             <div class="form-line">
-                                {{$cliente->endereco->bairro}}
+                                {{$produto->precoFinal}}
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <a href="{{ route('clientes.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
+
+                <a href="{{ route('produtos.index') }}" class="btn btn-default waves-effect">VOLTAR</a>
             </div>
         </div>
     </div>

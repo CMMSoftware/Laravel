@@ -1,32 +1,11 @@
 $(function () {
     $('#form_validation').validate({
         rules: {
-            'checkbox': {
-                required: true
+            password: {
+                minlength: 6
             },
-            'gender': {
+            perfil: {
                 required: true
-            }
-        },
-        highlight: function (input) {
-            $(input).parents('.form-line').addClass('error');
-        },
-        unhighlight: function (input) {
-            $(input).parents('.form-line').removeClass('error');
-        },
-        errorPlacement: function (error, element) {
-            $(element).parents('.form-group').append(error);
-        }
-    });
-
-    //Advanced Form Validation
-    $('#form_advanced_validation').validate({
-        rules: {
-            'date': {
-                customdate: true
-            },
-            'creditcard': {
-                creditcard: true
             }
         },
         highlight: function (input) {
@@ -41,18 +20,13 @@ $(function () {
     });
 
     //Custom Validations ===============================================================================
-    //Date
-    $.validator.addMethod('customdate', function (value, element) {
-        return value.match(/^\d\d\d\d?-\d\d?-\d\d$/);
-    },
-        'Please enter a date in the format YYYY-MM-DD.'
-    );
+    //Password Check
+    $.validator.addMethod('passwordCheck', function (value, element) {
+        
+        return value == $("#password").val();
 
-    //Credit card
-    $.validator.addMethod('creditcard', function (value, element) {
-        return value.match(/^\d\d\d\d?-\d\d\d\d?-\d\d\d\d?-\d\d\d\d$/);
-    },
-        'Please enter a credit card in the format XXXX-XXXX-XXXX-XXXX.'
+        }, 'A Senha e a Confirmação de Senha devem ser iguais.'
+    
     );
     //==================================================================================================
 });

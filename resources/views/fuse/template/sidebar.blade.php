@@ -1,25 +1,20 @@
 <!-- User Info -->
 <div class="user-info">
     <div class="image">
-        x
+        
     </div>
     <div class="info-container">
-        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</div>
-        <div class="email">{{ Auth::user()->email }}</div>
+        <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->nome }}</div>
+        <div class="email"><b>{{ Auth::user()->perfil }}</b></div>
         <div class="btn-group user-helper-dropdown">
             <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
             <ul class="dropdown-menu pull-right">
-                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Profile</a></li>
+                <li><a href="javascript:void(0);"><i class="material-icons">person</i>Meu Perfil</a></li>
                 <li role="seperator" class="divider"></li>
-                <li><a href="javascript:void(0);"><i class="material-icons">group</i>Followers</a></li>
-                <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
-                <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
-                <li role="seperator" class="divider"></li>
-
                 <li>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('Sair') }}
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -49,65 +44,63 @@
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="">Usuários</a>
+                    <a href="{{ route('usuarios.index') }}">Usuários</a>
                 </li>
                 <li>
                     <a href="{{ route('clientes.index') }}">Clientes</a>
                 </li>
                 <li>
-                    <a href="">Fornecedores</a>
+                    <a href="{{ route('fornecedores.index') }}">Fornecedores</a>
                 </li>
                 <li>
-                    <a href="">Produtos</a>
-                </li>
-                <li>
-                    <a href="">Serviços OS</a>
+                    <a href="{{ route('produtos.index') }}">Produtos</a>
                 </li>
             </ul>
         </li>
 
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">laptop_chromebook</i>
+                <i class="material-icons">shop</i>
                 <span>Serviços</span>
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <span>Vendas</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li>
-                            <a href="">Realizar</a>
-                        </li>
-                        <li>
-                            <a href="">Consultar</a>
-                        </li>
-                        <li>
-                            <a href="">Baixa de Parcela</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="">Ordem de Serviço</a>
+                    <a href="{{ route('vendas.index') }}">Vendas</a>
                 </li>
             </ul>
         </li>
 
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
-                <i class="material-icons">content_copy</i>
-                <span>Relatórios</span> 
+                <i class="material-icons">monetization_on</i>
+                <span>Financeiro</span> 
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="">Vendas</a>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <span>Contas a Receber</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="">Lançamento de Titulo a Receber</a>
+                        </li>
+                        <li>
+                            <a href="">Recebimento/Alteração de Titulo</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="">Ordens de Serviços</a>
-                </li>
-                <li>
-                    <a href="">Produtos</a>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <span>Contas a Pagar</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="">Lançamento de Titulo a Pagar</a>
+                        </li>
+                        <li>
+                            <a href="">Pagamento/Alteração de Titulo</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
@@ -115,14 +108,35 @@
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">settings</i>
-                <span>Configurações</span>
+                <span>Painel de Controle e Acesso</span>
             </a>
             <ul class="ml-menu">
                 <li>
-                    <a href="">Empresa</a>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <span>Controle de Acesso do Sistema</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="">Cadastrar Perfil</a>
+                        </li>
+                    </ul>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="">Cadastrar Permissões</a>
+                        </li>
+                    </ul>
                 </li>
+            </ul>
+            <ul class="ml-menu">
                 <li>
-                    <a href="">Backup</a>
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <span>Painel de Controle</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li>
+                            <a href="">Painel NF-e</a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
@@ -130,7 +144,7 @@
         <li>
             <a href="javascript:void(0);" class="menu-toggle">
                 <i class="material-icons">help</i>
-                <span>Ajuda</span>
+                <span>Ferramentas</span>
             </a>
             <ul class="ml-menu">
                 <li>

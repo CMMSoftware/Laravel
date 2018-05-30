@@ -5,7 +5,7 @@
     <ol class="breadcrumb breadcrumb-bg-blue">
         <li><a href="javascript:void(0);"><i class="material-icons">home</i> Home</a></li>
         <li><a href="javascript:void(0);"><i class="material-icons">add_circle</i> Cadastros</a></li>
-        <li class="active"><i class="material-icons">account_circle</i> Clientes</li>
+        <li class="active"><i class="material-icons">account_circle</i> Produtos</li>
     </ol>
 </div>
 
@@ -38,53 +38,55 @@
         <div class="card">
             <div class="header">
                 <h2>
-                    CLIENTES
+                    PRODUTOS
                 </h2>
             </div>
 
             <div class="body">
 
-                <a class="btn btn-success waves-effect" href="{{ route('clientes.create') }}">CADASTRAR</a>
+                <a class="btn btn-success waves-effect" href="{{ route('produtos.create') }}">CADASTRAR</a>
 
                 <div class="table-responsive">
                     <table id="example" class="table table-bordered table-striped table-hover dataTable js-exportable">
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>CLIENTE</th>
-                                <th>CPF</th>
-                                <th>CELULAR</th>
+                                <th>PRODUTO</th>
+                                <th>VALOR</th>
+                                <th>LOCALIZAÇÃO</th>
+                                <th>ESTOQUE</th>
                                 <th width="28%"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($clientes as $cliente)
+                            @foreach ($produtos as $produto)
                                 <tr>
-                                    <th scope="row">{{ $cliente->id }}</th>
-                                    <td>{{ $cliente->nome }}</td>
-                                    <td>{{ $cliente->cpf }}</td>
-                                    <td>{{ $cliente->telefone1 }}</td>
+                                    <th scope="row">{{ $produto->id }}</th>
+                                    <td>{{ $produto->id }}</td>
+                                    <td>{{ $produto->id }}</td>
+                                    <td>{{ $produto->id }}</td>
+                                    <td>{{ $produto->id }}</td>
                                     <td class="text-center">
                                         <a class="btn btn-info waves-effect" 
-                                        href="{{ route('clientes.show', $cliente) }}">DETALHAR</a>
+                                        href="{{ route('produtos.show', $produto->id) }}">DETALHAR</a>
                                         <a class="btn btn-primary waves-effect" 
-                                        href="{{ route('clientes.edit', $cliente) }}">EDITAR</a>
+                                        href="{{ route('produtos.edit', $produto->id) }}">EDITAR</a>
                                         <a class="btn btn-danger waves-effect"
-                                        data-toggle="modal" data-target="#modalCliente{{$cliente->id}}">DELETAR</a>
+                                        data-toggle="modal" data-target="#modalProduto{{$produto->id}}">DELETAR</a>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="modalCliente{{$cliente->id}}" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="modalProduto{{$produto->id}}" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content modal-col-red">
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="defaultModalLabel">EXCLUSÃO</h4>
                                             </div>
                                             <div class="modal-body">
-                                                Deseja Realmente Excluir o Cliente <b>{{$cliente->nome}}</b>?
+                                                Deseja Realmente Excluir o Produto <b>{{$produto->id}}</b>?
                                             </div>
                                             <div class="modal-footer">
                                                 <form style="display: inline;" 
-                                                action="{{ route('clientes.destroy', $cliente->id) }}" method="POST">
+                                                action="{{ route('produtos.destroy', $produto->id) }}" method="POST">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}
                                                     <button type="submit" class="btn btn-link waves-effect">CONFIRMAR</button>
